@@ -3,7 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 let jsonData = require('../public/conversations.json');
 import JSONPretty from 'react-json-pretty';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {response: JSON.stringify(jsonData)};
+  }
 
 
   render() {
@@ -16,7 +21,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <div> <pre>{ JSON.stringify(jsonData['conversations']) } </pre> </div>
+        <JSONPretty id="json-pretty" json={ this.state.response }></JSONPretty>
       </div>
     );
   }
