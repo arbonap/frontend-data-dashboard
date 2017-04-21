@@ -72,9 +72,36 @@ function lastNMonths(num) {
   }
   return active_companies
 }
-lastNMonths(4);
-console.log(active_companies);
 
+let fourMonths = lastNMonths(4)
+
+function sortObject(obj) {
+    let arr = [];
+    for (let prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            arr.push({
+                'key': prop,
+                'value': obj[prop]
+            });
+        }
+    }
+    arr.sort(function(a, b) { return b.value - a.value; }); //sort descending
+    return arr; // returns array
+}
+
+let sortedActiveCompaniesLastFourMonths = sortObject(fourMonths).slice(0).slice(0, 5)
+console.log(sortedActiveCompaniesLastFourMonths);
+
+// function getTopN(arr, prop, n) {
+//     var clone = arr.slice(0);
+//     // sort descending
+//     clone.sort(function(x, y) {
+//         if (x[prop] == y[prop]) return 0;
+//         else if (parseInt(x[prop]) < parseInt(y[prop])) return 1;
+//         else return -1;
+//     });
+//     return clone.slice(0, n);
+// }
 // let active_companies_per_month_count = {}
 // for(let i = 0; i < conversations.length; i++) {
 //   let conversation = conversations[i] // indexing into outer array
