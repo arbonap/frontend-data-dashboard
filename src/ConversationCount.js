@@ -1,18 +1,11 @@
 let data = require('../public/conversations.json');
 let moment = require('moment');
 moment().format();
-// var dateString = moment.unix(value).format("MM/DD/YYYY");
 // Top 5 of the most active
 //companies in the last N months
 //(N = 1 through 6). We measure
 //how active a company is by their
 //number of conversations.
-// Game Plan of Attack:
-// 1. then you loop over each message
-// 2. for each message, take the users and look up their companyId
-// 3. then you've got the companies participating in the message
-// 4. figure out which month the message was sent in, call it X
-// 5. then for each company c, companiesHash[c][X] += 1
 
 window.data = data
 
@@ -90,8 +83,12 @@ function sortObject(obj) {
 }
 
 let sortedActiveCompaniesLastFourMonths = sortObject(fourMonths).slice(0).slice(0, 5)
+console.log('The top 5 most active companies in last 4 months: 😘')
 console.log(sortedActiveCompaniesLastFourMonths);
-
+// sortedActiveCompaniesLastFourMonths.[0]
+for(let key in sortedActiveCompaniesLastFourMonths) {
+    console.log(sortedActiveCompaniesLastFourMonths[key]);
+}
 // function getTopN(arr, prop, n) {
 //     var clone = arr.slice(0);
 //     // sort descending
