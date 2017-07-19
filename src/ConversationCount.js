@@ -183,3 +183,6 @@ for(let key in sortedActiveCompaniesLastFourMonths) {
 //     'name': {first: 'Jacobin', last: 'Frobnitz'}
 //   }
 // }
+
+// Second question:
+// Find top 5 of the most active users per company for these companies.
